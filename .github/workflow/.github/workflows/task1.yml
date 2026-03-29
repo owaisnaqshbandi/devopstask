@@ -1,0 +1,10 @@
+name: Task 1 - Create Folder
+on: [push, workflow_dispatch]
+
+jobs:
+  create-folder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make Directory
+        run: mkdir -p "Owais-Muhammad"
