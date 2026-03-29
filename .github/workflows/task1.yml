@@ -1,0 +1,12 @@
+jobs:
+  create-folder:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+
+      - name: Create mowais folder
+        run: mkdir -p mowais
+        
