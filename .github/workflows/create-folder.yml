@@ -1,0 +1,25 @@
+name: 1 - Create Folder with Your Name
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  create-folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create folder with your name
+        run: |
+          FOLDER_NAME="folder-${{ github.actor }}"
+          mkdir -p "$FOLDER_NAME"
+          echo "✅ Folder created: $FOLDER_NAME" 
+          echo "Created by: ${{ github.actor }} on $(date)" > "$FOLDER_NAME/README.md"
+
+      - name: Show created folder
+        run: ls -la
